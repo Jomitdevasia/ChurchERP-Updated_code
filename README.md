@@ -376,4 +376,5 @@ If you found this project helpful, please give it a star on GitHub! ⭐
 
 ---
 
-**Built with ❤️ for St. Mary's Parish**
+**Built with ❤️ for St. Mary's Parish**#   C h u r c h E R P - U p d a t e d _ c o d e  
+ 
