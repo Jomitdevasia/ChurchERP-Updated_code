@@ -1,9 +1,7 @@
 import axios from 'axios';
 
-// Use environment variable or fallback to localhost
-const API_BASE_URL = process.env.REACT_APP_API_URL 
-  ? process.env.REACT_APP_API_URL.replace(/\/$/, '')  // remove trailing slash if any
-  : 'http://localhost:5000/api';
+// Temporarily hardcoded for Render deployment
+const API_BASE_URL = 'https://churcherp-backend.onrender.com/api';
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -12,6 +10,8 @@ const axiosInstance = axios.create({
     'Content-Type': 'application/json',
   },
 });
+
+// ... rest of your interceptors remain exactly the same
 
 // For testing, always accept responses (optional – you can keep or remove)
 axiosInstance.interceptors.response.use(
