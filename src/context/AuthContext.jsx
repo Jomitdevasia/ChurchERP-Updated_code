@@ -4,7 +4,7 @@ import axios from 'axios';
 export const AuthContext = createContext();
 
 // Set this to true to use mock backend, false to use real backend
-const USE_MOCK_BACKEND = true;  // Change this to false when you have a real backend
+const USE_MOCK_BACKEND = false;  // Change this to false when you have a real backend
 
 // Mock API URL
 const MOCK_API_URL = 'http://localhost:5000/api';
