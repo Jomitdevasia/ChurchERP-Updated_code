@@ -1,6 +1,9 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+// Use environment variable or fallback to localhost
+const API_BASE_URL = process.env.REACT_APP_API_URL 
+  ? process.env.REACT_APP_API_URL.replace(/\/$/, '')  // remove trailing slash if any
+  : 'http://localhost:5000/api';
 
 const axiosInstance = axios.create({
   baseURL: API_BASE_URL,
@@ -10,7 +13,7 @@ const axiosInstance = axios.create({
   },
 });
 
-// For testing, always accept responses
+// For testing, always accept responses (optional – you can keep or remove)
 axiosInstance.interceptors.response.use(
   (response) => response,
   (error) => {
@@ -20,7 +23,7 @@ axiosInstance.interceptors.response.use(
   }
 );
 
-// Request interceptor
+// Request interceptor – add auth token
 axiosInstance.interceptors.request.use(
   (config) => {
     const token = localStorage.getItem('accessToken');
@@ -29,12 +32,10 @@ axiosInstance.interceptors.request.use(
     }
     return config;
   },
-  (error) => {
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error)
 );
 
-// Response interceptor
+// Response interceptor – handle token refresh
 axiosInstance.interceptors.response.use(
   (response) => response,
   async (error) => {
