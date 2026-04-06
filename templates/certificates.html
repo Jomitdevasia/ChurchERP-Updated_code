@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Certificates · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">📜 Certificates Management</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<div class="module-grid">
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-droplet"></i></div>
+        <h3>Baptism Certificates</h3>
+        <span class="module-desc">issue / print</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-ring"></i></div>
+        <h3>Marriage Certificates</h3>
+        <span class="module-desc">issue / print</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-id-card"></i></div>
+        <h3>Membership Certificates</h3>
+        <span class="module-desc">parish membership</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-check-double"></i></div>
+        <h3>Digital Approval</h3>
+        <span class="module-desc">workflow</span>
+    </div>
+</div>
+{% endblock %}

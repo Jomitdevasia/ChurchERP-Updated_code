@@ -1,0 +1,264 @@
+
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(145deg, #f6f9fc 0%, #eef2f7 100%);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.5rem;
+            margin: 0;
+            color: #1e293b;
+        }
+
+        /* main slide card – like a modern dashboard frame */
+        .dashboard-slide {
+            max-width: 1300px;
+            width: 100%;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 3.5rem;
+            box-shadow: 
+                0 30px 60px -20px rgba(0,40,60,0.3),
+                inset 0 1px 2px rgba(255,255,255,0.8);
+            padding: 2.5rem 2.8rem;
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        /* header area – crisp & catchy */
+        .slide-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-title h1 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 2.2rem;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #1e2b4f, #2c3e6e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        .header-title p {
+            font-size: 1rem;
+            font-weight: 400;
+            color: #546e7a;
+            margin-top: 0.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .header-title p i {
+            color: #3b82f6;
+            font-size: 0.9rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .badge-slide {
+            background: white;
+            border-radius: 100px;
+            padding: 0.6rem 1.5rem;
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 6px 14px rgba(0,20,40,0.05);
+            border: 1px solid rgba(59,130,246,0.15);
+            color: #1e3a5f;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .badge-slide i {
+            color: #3b82f6;
+        }
+
+        .date-tag {
+            background: #1e293b;
+            color: white;
+            border: none;
+            box-shadow: 0 8px 16px -6px #1e293b50;
+        }
+
+        .date-tag i {
+            color: #fbbf24;
+        }
+
+        /* grid – each module gets a catchy card */
+        .module-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .module-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 2.2rem;
+            padding: 1.8rem 1.2rem 1.4rem 1.2rem;
+            box-shadow: 0 16px 28px -10px rgba(0,30,50,0.08),
+                        0 0 0 1px rgba(255,255,255,0.7) inset,
+                        0 0 0 1px rgba(0,0,0,0.02);
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.5);
+            cursor: default;
+        }
+
+        .module-card:hover {
+            transform: translateY(-8px) scale(1.02);
+            background: white;
+            box-shadow: 0 28px 38px -14px #1e3a5f40, 0 0 0 1px rgba(59,130,246,0.2) inset;
+        }
+
+        /* icon style */
+        .card-icon {
+            font-size: 2.4rem;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(125deg, #dbeafe, #f0f7ff);
+            border-radius: 2rem;
+            margin-bottom: 1.3rem;
+            color: #1e3a8a;
+            transition: 0.2s;
+            box-shadow: 0 8px 12px -6px #bbd4fd;
+        }
+
+        .module-card:hover .card-icon {
+            background: linear-gradient(125deg, #bfdbfe, #dbeafe);
+            color: #0f2b63;
+        }
+
+        .module-card h3 {
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+            color: #0b1f3b;
+            letter-spacing: -0.01em;
+        }
+
+        .module-desc {
+            font-size: 0.75rem;
+            font-weight: 400;
+            color: #5f6c84;
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+
+        /* duplicated item hint subtle */
+        .card-sub {
+            font-size: 0.65rem;
+            background: #e9effa;
+            padding: 0.2rem 0.7rem;
+            border-radius: 30px;
+            margin-top: 0.5rem;
+            color: #2c3e6e;
+            font-weight: 500;
+        }
+
+        /* footer / extra row to match "slide" feeling */
+        .slide-footer {
+            margin-top: 2.8rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #62748c;
+            font-size: 0.9rem;
+            border-top: 1px dashed rgba(0,0,0,0.06);
+            padding-top: 1.5rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .footer-links span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.5);
+            padding: 0.3rem 1rem;
+            border-radius: 40px;
+            font-weight: 500;
+        }
+
+        .pill-note {
+            background: #1e2b4f;
+            color: white;
+            padding: 0.4rem 1.4rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            box-shadow: 0 2px 8px #1e2b4f30;
+        }
+
+        /* make it responsive & cozy */
+        @media (max-width: 650px) {
+            .dashboard-slide {
+                padding: 1.8rem;
+                border-radius: 2rem;
+            }
+            .header-title h1 {
+                font-size: 1.8rem;
+            }
+            .module-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+            .card-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2rem;
+                border-radius: 1.5rem;
+            }
+        }
+
+        /* special accent for first card (dashboard) */
+        .module-card:first-child .card-icon {
+            background: linear-gradient(135deg, #f2e9ff, #e0d6ff);
+            color: #4f359b;
+        }
+
+        /* custom tweaks */
+        .module-card:nth-child(2) .card-icon { color: #a4315c; } /* member */
+        .module-card:nth-child(3) .card-icon { color: #0f5b5b; } /* finance */
+        .module-card:nth-child(4) .card-icon { color: #b6581c; } /* qurbana */
+        .module-card:nth-child(5) .card-icon { color: #2b6e4f; } /* donations */
+        .module-card:nth-child(6) .card-icon { color: #7b4f9c; } /* cert */
+        .module-card:nth-child(7) .card-icon { color: #0369a1; } /* payroll */
+        .module-card:nth-child(8) .card-icon { color: #b45309; } /* events */
+        .module-card:nth-child(9) .card-icon { color: #5f4b8b; } /* reports */
+        .module-card:nth-child(10) .card-icon { color: #a5224b; } /* admin */
+        /* additional 11th if needed */
+   

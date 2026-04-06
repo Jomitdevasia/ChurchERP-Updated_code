@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Login · ParishOS{% endblock %}
+
+{% block content %}
+<div style="max-width: 400px; margin: 4rem auto; background: white; border-radius: 28px; box-shadow: 0 20px 40px -10px rgba(0,50,30,0.15); padding: 2rem;">
+    <h1 style="text-align: center; color: #1e3f3a; margin-bottom: 1.5rem;">
+        <i class="fas fa-church"></i> Church·ERP Login
+    </h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+                <div style="padding: 0.8rem; border-radius: 12px; margin-bottom: 1rem; background: {% if category == 'success' %}#d4edda{% else %}#f8d7da{% endif %}; color: {% if category == 'success'%}#155724{% else %}#721c24{% endif %};">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+
+    <form method="POST">
+        <div style="margin-bottom: 1.2rem;">
+            <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Username</label>
+            <input type="text" name="username" placeholder="Enter username" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+        </div>
+        <div style="margin-bottom: 1.5rem;">
+            <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Password</label>
+            <input type="password" name="password" placeholder="Enter password" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; border: none; padding: 12px; border-radius: 40px; background: #266b5c; color: white; font-weight: 600; cursor: pointer;">
+            <i class="fas fa-sign-in-alt"></i> Log In
+        </button>
+    </form>
+</div>
+{% endblock %}

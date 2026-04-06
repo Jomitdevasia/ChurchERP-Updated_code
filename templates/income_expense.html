@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+
+{% block title %}Income & Expense · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">📊 Income & Expense</h1>
+    <a href="{{ url_for('finance') }}" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Finance
+    </a>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <!-- LEFT: Form to add a new transaction -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">➕ New Transaction</h3>
+        <form method="POST" action="{{ url_for('add_transaction') }}">
+            <!-- Type: Income or Expense -->
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Type</label>
+                <div style="display: flex; gap: 1rem;">
+                    <label style="display: flex; align-items: center; gap: 0.3rem;">
+                        <input type="radio" name="type" value="income" checked> <span>Income</span>
+                    </label>
+                    <label style="display: flex; align-items: center; gap: 0.3rem;">
+                        <input type="radio" name="type" value="expense"> <span>Expense</span>
+                    </label>
+                </div>
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Date</label>
+                <input type="date" name="date" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Description</label>
+                <input type="text" name="description" placeholder="e.g. Sunday collection, electricity bill" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Amount (€)</label>
+                <input type="number" step="0.01" name="amount" placeholder="0.00" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Category</label>
+                <select name="category" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+                    <option value="offering">Offering</option>
+                    <option value="donation">Donation</option>
+                    <option value="utilities">Utilities</option>
+                    <option value="maintenance">Maintenance</option>
+                    <option value="salary">Salary</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Payment Method</label>
+                <select name="method" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+                    <option value="cash">Cash</option>
+                    <option value="check">Check</option>
+                    <option value="bank transfer">Bank Transfer</option>
+                    <option value="online">Online</option>
+                </select>
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Notes (optional)</label>
+                <textarea name="notes" rows="2" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;"></textarea>
+            </div>
+
+            <button type="submit" style="border: none; padding: 12px 28px; border-radius: 40px; background: #266b5c; color: white; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-save"></i> Save Transaction
+            </button>
+        </form>
+    </div>
+
+    <!-- RIGHT: Recent transactions list -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">📋 Recent Transactions</h3>
+        {% if transactions %}
+            <ul style="list-style: none; padding: 0;">
+            {% for t in transactions %}
+                <li style="padding: 12px 0; border-bottom: 1px solid #e2ebe5; display: flex; justify-content: space-between; align-items: center;">
+                    <div>
+                        <span style="font-weight: 600;">{{ t.description }}</span><br>
+                        <span style="font-size: 0.85rem; color: #7a9c91;">{{ t.date }} · {{ t.category }}</span>
+                    </div>
+                    <div style="text-align: right;">
+                        <span style="font-weight: 600; color: {{ 'green' if t.type == 'income' else 'red' }};">
+                            {{ '+' if t.type == 'income' else '-' }}€{{ "%.2f"|format(t.amount) }}
+                        </span>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color: #7a9c91;">No transactions recorded yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,43 @@
+.donations-page {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.donations-summary {
+  margin-bottom: var(--spacing-xl);
+}
+
+.summary-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-lg);
+}
+
+.summary-stat {
+  text-align: center;
+  padding: var(--spacing-md);
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.stat-value {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-gold);
+}
+
+@media (max-width: 768px) {
+  .summary-stats {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-md);
+  }
+  
+  .summary-stat {
+    padding: var(--spacing-sm);
+  }
+}

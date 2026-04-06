@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Events & Hall Booking · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">🎉 Events & Hall Booking</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<a href="{{ url_for('event_planning') }}" style="text-decoration: none; color: inherit;">
+    <div class="module-grid">
+        <div class="module-card">
+            <div class="card-icon"><i class="fas fa-calendar-plus"></i></div>
+            <h3>Event Planning</h3>
+            <span class="module-desc">schedule events</span>
+        </div>
+</a>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-door-open"></i></div>
+        <h3>Hall Reservations</h3>
+        <span class="module-desc">book facilities</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-users"></i></div>
+        <h3>Volunteer Assignment</h3>
+        <span class="module-desc">coordinate help</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-receipt"></i></div>
+        <h3>Expense Tracking</h3>
+        <span class="module-desc">event costs</span>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% block title %}Qurbana Management · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">⛪ Sacrament Management</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<a href="{{ url_for('mass_booking') }}" >
+    <div class="module-grid">
+        <div class="module-card">
+            <div class="card-icon"><i class="fas fa-calendar-check"></i></div>
+            <h3>Mass Booking</h3>
+            <span class="module-desc">schedule masses</span>
+        </div>
+</a>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-pray"></i></div>
+        <h3>Intentions Register</h3>
+        <span class="module-desc">mass intentions</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-user-tie"></i></div>
+        <h3>Priest Scheduling</h3>
+        <span class="module-desc">assign celebrants</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-birthday-cake"></i></div>
+        <h3>Feast Days</h3>
+        <span class="module-desc">special services</span>
+    </div>
+</div>
+{% endblock %}

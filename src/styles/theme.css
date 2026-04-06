@@ -1,0 +1,74 @@
+:root {
+  /* Christian Theme Colors - Inspired by St. Mary's */
+  --primary-gold: #D4AF37;
+  --primary-gold-light: #F3E5AB;
+  --primary-gold-dark: #B8860B;
+  
+  --secondary-crimson: #027313;
+  --secondary-crimson-light: #B22222;
+  --secondary-crimson-dark: #660000;
+  
+  --purple-royal: #a25bd5;
+  --purple-lavender: #E6E6FA;
+  
+  --blue-marian: #4169E1;
+  --blue-sky: #87CEEB;
+  
+  --brown-wood: #8B4513;
+  --brown-tan: #D2B48C;
+  
+  --green-olive: #808000;
+  --green-pastoral: #228B22;
+  
+  --white-pure: #e0f0d7;
+  --gray-light: #F5F5F5;
+  --gray-medium: #D3D3D3;
+  --gray-dark: #808080;
+  --black-soft: #2C2C2C;
+  
+  /* Gradients */
+  --gradient-gold: linear-gradient(135deg, var(--primary-gold) 0%, var(--primary-gold-dark) 100%);
+  --gradient-crimson: linear-gradient(135deg, var(--secondary-crimson) 0%, var(--secondary-crimson-dark) 100%);
+  --gradient-royal: linear-gradient(135deg, var(--purple-royal) 0%, var(--blue-marian) 100%);
+  --gradient-church: linear-gradient(135deg, #8B4513 0%, #D4AF37 100%);
+  
+  /* Spacing */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+  --shadow-church: 0 4px 20px rgba(139, 69, 19, 0.15);
+  
+  /* Transitions */
+  --transition-fast: 150ms;
+  --transition-normal: 300ms;
+  --transition-slow: 500ms;
+}
+
+/* Dark Mode Support */
+[data-theme="dark"] {
+  --white-pure: #1a1a1a;
+  --gray-light: #2c2c2c;
+  --gray-medium: #404040;
+  --black-soft: #e5e5e5;
+}

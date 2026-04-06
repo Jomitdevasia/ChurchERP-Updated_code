@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Member Management · ParishOS{% endblock %}
+
+{% block content %}
+<!-- Header with back link -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">👥 Member Management</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<!-- Grid of sub‑modules -->
+<a href="{{ url_for('add_member') }}" style="text-decoration: none; color: inherit;">
+    <div class="module-grid">
+        <div class="module-card">
+        <div class="card-icon"><i class="fas fa-user-plus"></i></div>
+        <h3>Add Member</h3>
+        <span class="module-desc">REGISTER NEW MEMBER</span>
+
+    </div>
+</a>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-address-book"></i></div>
+        <h3>Member Directory</h3>
+        <span class="module-desc">view all members</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-users-between-lines"></i></div>
+        <h3>Families</h3>
+        <span class="module-desc">manage family units</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Member Reports</h3>
+        <span class="module-desc">statistics & exports</span>
+    </div>
+</div>
+{% endblock %}
+

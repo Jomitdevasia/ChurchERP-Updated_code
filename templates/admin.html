@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Administration · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">⚙️ Administration</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<div class="module-grid">
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-user-lock"></i></div>
+        <h3>User Roles & Permissions</h3>
+        <span class="module-desc">access control</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-cogs"></i></div>
+        <h3>System Settings</h3>
+        <span class="module-desc">configure parish</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-database"></i></div>
+        <h3>Backup & Restore</h3>
+        <span class="module-desc">data safety</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-history"></i></div>
+        <h3>Audit Logs</h3>
+        <span class="module-desc">track changes</span>
+    </div>
+</div>
+{% endblock %}

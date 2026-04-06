@@ -1,0 +1,255 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@parish.com",
+      "password": "password",
+      "name": "Admin User",
+      "role": "admin",
+      "avatar": "https://via.placeholder.com/40"
+    },
+    {
+      "id": 2,
+      "email": "secretary@parish.com",
+      "password": "secretary123",
+      "name": "Mary Johnson",
+      "role": "secretary",
+      "avatar": "https://via.placeholder.com/40"
+    },
+    {
+      "id": 3,
+      "email": "priest@parish.com",
+      "password": "priest123",
+      "name": "Rev. Fr. John Doe",
+      "role": "priest",
+      "avatar": "https://via.placeholder.com/40"
+    }
+  ],
+  "families": [
+    {
+      "id": 1,
+      "familyId": "F001",
+      "familyName": "Smith Family",
+      "address": "123 Main St, Parish City",
+      "ward": "Ward 1",
+      "phone": "+1 (555) 123-4567",
+      "email": "smith@example.com",
+      "status": "active",
+      "memberCount": 4,
+      "createdAt": "2024-01-15T10:00:00Z"
+    },
+    {
+      "id": 2,
+      "familyId": "F002",
+      "familyName": "Johnson Family",
+      "address": "456 Oak Ave, Parish City",
+      "ward": "Ward 2",
+      "phone": "+1 (555) 234-5678",
+      "email": "johnson@example.com",
+      "status": "active",
+      "memberCount": 3,
+      "createdAt": "2024-01-20T10:00:00Z"
+    },
+    {
+      "id": 3,
+      "familyId": "F003",
+      "familyName": "Williams Family",
+      "address": "789 Pine St, Parish City",
+      "ward": "Ward 1",
+      "phone": "+1 (555) 345-6789",
+      "email": "williams@example.com",
+      "status": "active",
+      "memberCount": 5,
+      "createdAt": "2024-02-01T10:00:00Z"
+    }
+  ],
+  "members": [
+    {
+      "id": 1,
+      "memberId": "M001",
+      "name": "John Smith",
+      "familyId": 1,
+      "familyName": "Smith Family",
+      "dateOfBirth": "1985-03-15",
+      "gender": "male",
+      "phone": "+1 (555) 123-4567",
+      "email": "john.smith@example.com",
+      "baptismName": "John",
+      "status": "active",
+      "age": 39
+    },
+    {
+      "id": 2,
+      "memberId": "M002",
+      "name": "Mary Smith",
+      "familyId": 1,
+      "familyName": "Smith Family",
+      "dateOfBirth": "1987-07-22",
+      "gender": "female",
+      "phone": "+1 (555) 123-4567",
+      "email": "mary.smith@example.com",
+      "baptismName": "Mary",
+      "status": "active",
+      "age": 37
+    },
+    {
+      "id": 3,
+      "memberId": "M003",
+      "name": "James Johnson",
+      "familyId": 2,
+      "familyName": "Johnson Family",
+      "dateOfBirth": "1990-11-10",
+      "gender": "male",
+      "phone": "+1 (555) 234-5678",
+      "email": "james.johnson@example.com",
+      "baptismName": "James",
+      "status": "active",
+      "age": 34
+    }
+  ],
+  "sacraments": [
+    {
+      "id": 1,
+      "memberId": 1,
+      "memberName": "John Smith",
+      "sacramentType": "baptism",
+      "date": "1985-04-20",
+      "priest": "Rev. Fr. Thomas",
+      "church": "St. Mary's Church",
+      "certificateNumber": "BAP-2024-001",
+      "notes": "Baptized as infant"
+    },
+    {
+      "id": 2,
+      "memberId": 1,
+      "memberName": "John Smith",
+      "sacramentType": "confirmation",
+      "date": "1995-05-15",
+      "priest": "Rev. Fr. Michael",
+      "church": "St. Mary's Church",
+      "certificateNumber": "CON-2024-001",
+      "notes": ""
+    },
+    {
+      "id": 3,
+      "memberId": 2,
+      "memberName": "Mary Smith",
+      "sacramentType": "marriage",
+      "date": "2010-08-20",
+      "priest": "Rev. Fr. Thomas",
+      "church": "St. Mary's Church",
+      "certificateNumber": "MAR-2024-001",
+      "notes": "Married to John Smith"
+    }
+  ],
+  "donations": [
+    {
+      "id": 1,
+      "memberId": 1,
+      "memberName": "John Smith",
+      "amount": 500,
+      "type": "tithe",
+      "date": "2024-03-01",
+      "paymentMethod": "cash",
+      "receiptNumber": "RCP-2024-001",
+      "notes": "Monthly tithe"
+    },
+    {
+      "id": 2,
+      "memberId": 2,
+      "memberName": "Mary Smith",
+      "amount": 200,
+      "type": "offertory",
+      "date": "2024-03-15",
+      "paymentMethod": "online",
+      "receiptNumber": "RCP-2024-002",
+      "notes": "Sunday offering"
+    },
+    {
+      "id": 3,
+      "memberId": 3,
+      "memberName": "James Johnson",
+      "amount": 1000,
+      "type": "building",
+      "date": "2024-03-10",
+      "paymentMethod": "check",
+      "receiptNumber": "RCP-2024-003",
+      "notes": "Building fund donation"
+    }
+  ],
+  "dashboard": {
+    "totalFamilies": 3,
+    "totalMembers": 3,
+    "totalDonations": 1700,
+    "sacramentsThisYear": 5,
+    "recentActivities": [
+      {
+        "id": 1,
+        "description": "New family registered: Smith Family",
+        "user": "Admin",
+        "time": "2 hours ago"
+      },
+      {
+        "id": 2,
+        "description": "Donation received: $500 from John Smith",
+        "user": "Treasurer",
+        "time": "5 hours ago"
+      },
+      {
+        "id": 3,
+        "description": "New member added: James Johnson",
+        "user": "Secretary",
+        "time": "1 day ago"
+      }
+    ],
+    "upcomingEvents": [
+      {
+        "id": 1,
+        "title": "Sunday Mass",
+        "date": "2024-03-24",
+        "location": "Main Church",
+        "time": "10:00 AM"
+      },
+      {
+        "id": 2,
+        "title": "Bible Study",
+        "date": "2024-03-25",
+        "location": "Parish Hall",
+        "time": "7:00 PM"
+      }
+    ]
+  },
+  "reports": {
+    "monthlyDonations": [
+      { "name": "Jan", "value": 1200 },
+      { "name": "Feb", "value": 1500 },
+      { "name": "Mar", "value": 1700 },
+      { "name": "Apr", "value": 1400 },
+      { "name": "May", "value": 1800 },
+      { "name": "Jun", "value": 1600 }
+    ],
+    "memberGrowth": [
+      { "period": "Jan", "members": 45, "newMembers": 5 },
+      { "period": "Feb", "members": 48, "newMembers": 3 },
+      { "period": "Mar", "members": 52, "newMembers": 4 },
+      { "period": "Apr", "members": 55, "newMembers": 3 },
+      { "period": "May", "members": 58, "newMembers": 3 },
+      { "period": "Jun", "members": 62, "newMembers": 4 }
+    ]
+  },
+  "parish": {
+    "id": 1,
+    "name": "St. Mary's Parish",
+    "address": "123 Church Street, Parish City",
+    "phone": "+1 (555) 123-4567",
+    "email": "parish@stmarys.org",
+    "priest": "Rev. Fr. John Doe",
+    "established": "1900",
+    "description": "St. Mary's Parish is a vibrant Catholic community dedicated to serving God and neighbor. We welcome all to join us in faith, worship, and service.",
+    "massSchedule": {
+      "weekdays": "Monday - Friday: 6:30 AM, 7:30 AM",
+      "saturday": "7:00 AM, 6:00 PM (Vigil Mass)",
+      "sunday": "7:00 AM, 9:00 AM, 11:00 AM, 5:00 PM"
+    }
+  }
+}

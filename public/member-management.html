@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Management · ParishOS</title>
+    <!-- Include any CSS files you need – if you had a base template with styles, copy them here -->
+    <style>
+        /* Add any styles you had in your base template, or link to an external CSS file */
+        body { font-family: 'Poppins', sans-serif; margin: 2rem; }
+        .module-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 1rem; }
+        .module-card { border: 1px solid #ccc; padding: 1rem; border-radius: 8px; cursor: pointer; }
+        .card-icon { font-size: 2rem; }
+        .module-desc { display: block; color: #666; }
+        /* ... other styles ... */
+    </style>
+    <!-- Include Font Awesome for icons if needed -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Header with back link -->
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">👥 Member Management</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<!-- Modal for Add Member (hidden by default) -->
+<div id="addMemberModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5);">
+  <div style="background: white; margin: 5% auto; padding: 2rem; width: 400px; border-radius: 12px;">
+    <h2>Register New Member</h2>
+    <form id="memberForm">
+      <input type="text" name="first_name" placeholder="First Name" required style="width:100%; padding:8px; margin:8px 0;">
+      <input type="text" name="last_name" placeholder="Last Name" required style="width:100%; padding:8px; margin:8px 0;">
+      <select name="gender" style="width:100%; padding:8px; margin:8px 0;">
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+      </select>
+      <input type="date" name="date_of_birth" style="width:100%; padding:8px; margin:8px 0;">
+      <select name="marital_status" style="width:100%; padding:8px; margin:8px 0;">
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+        <option value="widowed">Widowed</option>
+        <option value="divorced">Divorced</option>
+        <option value="separated">Separated</option>
+      </select>
+      <button type="submit" style="background: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Save Member</button>
+      <button type="button" onclick="document.getElementById('addMemberModal').style.display='none'" style="background: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">Cancel</button>
+    </form>
+  </div>
+</div>
+
+<!-- Grid of sub‑modules -->
+<div class="module-grid">
+  <div class="module-card" onclick="document.getElementById('addMemberModal').style.display='block'">
+    <div class="card-icon"><i class="fas fa-user-plus"></i></div>
+    <h3>Add Member</h3>
+    <span class="module-desc">register new member</span>
+  </div>
+  <div class="module-card" onclick="location.href='/members.html'">
+    <div class="card-icon"><i class="fas fa-address-book"></i></div>
+    <h3>Member Directory</h3>
+    <span class="module-desc">view all members</span>
+  </div>
+  <div class="module-card" onclick="location.href='/families.html'">
+    <div class="card-icon"><i class="fas fa-users-between-lines"></i></div>
+    <h3>Families</h3>
+    <span class="module-desc">manage family units</span>
+  </div>
+  <div class="module-card" onclick="location.href='/reports.html'">
+    <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+    <h3>Member Reports</h3>
+    <span class="module-desc">statistics & exports</span>
+  </div>
+</div>
+
+<script>
+// This script runs when the page loads
+document.getElementById('memberForm').addEventListener('submit', async (e) => {
+  e.preventDefault(); // Stop the form from submitting the traditional way
+
+  // Collect form data into an object
+  const formData = new FormData(e.target);
+  const data = Object.fromEntries(formData.entries());
+
+  // Send a POST request to your API
+  const response = await fetch('/api/members', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data)
+  });
+
+  const result = await response.json();
+
+  if (response.ok) {
+    alert('Member added successfully! ID: ' + result.member_id);
+    document.getElementById('addMemberModal').style.display = 'none';
+    e.target.reset(); // clear the form
+  } else {
+    alert('Error: ' + result.error);
+  }
+});
+</script>
+
+</body>
+</html>

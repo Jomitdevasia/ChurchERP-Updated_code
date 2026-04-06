@@ -1,0 +1,174 @@
+.auth-page {
+  min-height: 100vh;
+  background: #f0f2f5;           /* neutral background, not a gradient */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xl);
+}
+
+.auth-container {
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  background: white;              /* container background is white */
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+  animation: slideUp 0.5s ease-out;
+}
+
+.auth-card {
+  flex: 1;
+  padding: var(--spacing-3xl);
+  max-width: 500px;
+  background: white;              /* ensure form area is white */
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.church-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto var(--spacing-lg);
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--white-pure);
+  box-shadow: var(--shadow-md);
+}
+
+.auth-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  color: var(--secondary-crimson);
+}
+
+.auth-header p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--gray-dark);
+}
+
+.auth-form {
+  margin-top: var(--spacing-xl);
+}
+
+.form-options {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  cursor: pointer;
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+}
+
+.forgot-link {
+  font-size: 0.875rem;
+  color: var(--primary-gold);
+  text-decoration: none;
+}
+
+.forgot-link:hover {
+  text-decoration: underline;
+}
+
+.auth-footer {
+  margin-top: var(--spacing-xl);
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--gray-medium);
+}
+
+.auth-footer p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+}
+
+.auth-footer a {
+  color: var(--primary-gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Right banner – light background + church image + Bible quote */
+.auth-banner {
+  flex: 1;
+  background: linear-gradient(135deg, #fef9e6 0%, #f3e8d2 100%);
+  background-image: url('https://images.unsplash.com/photo-1438032001330-3c0f2e1c0e1c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+  background-size: cover;
+  background-blend-mode: overlay;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-3xl);
+  position: relative;
+}
+
+/* Optional subtle dark overlay to make text readable */
+.auth-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: inherit;
+}
+
+.banner-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  color: white;
+  max-width: 320px;
+}
+
+.banner-content h2 {
+  font-size: 1.5rem;
+  font-family: var(--font-heading, 'Playfair Display', serif);
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.4;
+  margin-bottom: var(--spacing-md);
+  color: white;                 /* or keep gold: var(--primary-gold) */
+}
+
+.banner-content p {
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+  }
+  
+  .auth-card {
+    max-width: 100%;
+    padding: var(--spacing-xl);
+  }
+  
+  .auth-banner {
+    min-height: 250px;
+  }
+}

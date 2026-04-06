@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Assets & Inventory · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">📦 Assets & Inventory</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<div class="module-grid">
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-church"></i></div>
+        <h3>Church Asset Tracking</h3>
+        <span class="module-desc">manage property</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-tools"></i></div>
+        <h3>Maintenance Scheduling</h3>
+        <span class="module-desc">plan repairs</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-boxes"></i></div>
+        <h3>Inventory Management</h3>
+        <span class="module-desc">track supplies</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-file-invoice"></i></div>
+        <h3>Purchase Records</h3>
+        <span class="module-desc">procurement log</span>
+    </div>
+</div>
+{% endblock %}

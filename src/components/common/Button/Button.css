@@ -1,0 +1,125 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: none;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  font-family: var(--font-body);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+/* Variants */
+.btn-primary {
+  background: var(--gradient-gold);
+  color: var(--white-pure);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-secondary {
+  background: var(--gradient-crimson);
+  color: var(--white-pure);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--primary-gold);
+  color: var(--primary-gold-dark);
+}
+
+.btn-outline:hover:not(:disabled) {
+  background: var(--primary-gold);
+  color: var(--white-pure);
+}
+
+.btn-danger {
+  background: var(--secondary-crimson);
+  color: var(--white-pure);
+}
+
+.btn-danger:hover:not(:disabled) {
+  background: var(--secondary-crimson-dark);
+}
+
+/* Sizes */
+.btn-small {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.btn-medium {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.125rem;
+}
+
+/* Loading State */
+.btn-loading {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.btn-spinner {
+  width: 1.25rem;
+  height: 1.25rem;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: var(--white-pure);
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+  margin-right: 0.5rem;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Full Width */
+.btn-fullwidth {
+  width: 100%;
+}
+
+/* Disabled State */
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Icons */
+.btn-icon {
+  display: inline-flex;
+  align-items: center;
+  font-size: 1.125rem;
+}
+
+.btn-icon-left {
+  margin-right: 0.25rem;
+}
+
+.btn-icon-right {
+  margin-left: 0.25rem;
+}

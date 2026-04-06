@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Finance & Accounts · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">💰 Finance & Accounts</h1>
+    <a href="/" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Dashboard
+    </a>
+</div>
+
+<a href="{{ url_for('income_expense') }}" style="text-decoration: none;">
+    
+    <div class="module-grid">
+        <div class="module-card">
+            <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
+            <h3>Income & Expense</h3>
+            <span class="module-desc">track transactions</span>
+        </div>
+</a>    
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-hand-holding-usd"></i></div>
+        <h3>Qurbana Offerings</h3>
+        <span class="module-desc">manage mass collections</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-user-cog"></i></div>
+        <h3>Payroll Processing</h3>
+        <span class="module-desc">staff salaries</span>
+    </div>
+    <div class="module-card">
+        <div class="card-icon"><i class="fas fa-chart-line"></i></div>
+        <h3>Budget Planning</h3>
+        <span class="module-desc">reports & forecasts</span>
+    </div>
+</div>
+{% endblock %}

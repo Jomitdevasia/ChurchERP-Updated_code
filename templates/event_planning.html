@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}Event Planning · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">📅 Event Planning</h1>
+    <a href="{{ url_for('events') }}" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Events & Hall Booking
+    </a>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <!-- LEFT: Form to create a new event -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">➕ New Event</h3>
+        <form method="POST" action="{{ url_for('add_event') }}">
+            <!-- Event name -->
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Event Name</label>
+                <input type="text" name="name" placeholder="e.g. Christmas Bazaar" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <!-- Date and time (two columns) -->
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1.2rem;">
+                <div>
+                    <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Date</label>
+                    <input type="date" name="date" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+                </div>
+                <div>
+                    <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Start Time</label>
+                    <input type="time" name="start_time" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+                </div>
+            </div>
+
+            <!-- End time (full width) -->
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">End Time</label>
+                <input type="time" name="end_time" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <!-- Location -->
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Location</label>
+                <input type="text" name="location" placeholder="e.g. Parish Hall" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <!-- Organizer -->
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Organizer</label>
+                <input type="text" name="organizer" placeholder="e.g. Youth Group" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+
+            <!-- Description -->
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Description</label>
+                <textarea name="description" rows="3" placeholder="Brief description of the event..." style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;"></textarea>
+            </div>
+
+            <button type="submit" style="border: none; padding: 12px 28px; border-radius: 40px; background: #266b5c; color: white; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-calendar-plus"></i> Create Event
+            </button>
+        </form>
+    </div>
+
+    <!-- RIGHT: Upcoming events list -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">📋 Upcoming Events</h3>
+        {% if events %}
+            <ul style="list-style: none; padding: 0;">
+            {% for e in events %}
+                <li style="padding: 12px 0; border-bottom: 1px solid #e2ebe5;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <div>
+                            <span style="font-weight: 600;">{{ e.name }}</span><br>
+                            <span style="font-size: 0.85rem; color: #7a9c91;">
+                                {{ e.date }} · {{ e.start_time }}–{{ e.end_time }} · {{ e.location }}
+                            </span>
+                        </div>
+                        <span style="background: #f0f7f4; padding: 0.3rem 0.8rem; border-radius: 40px; font-size: 0.8rem; color: #266b5c;">
+                            {{ e.organizer if e.organizer else 'TBD' }}
+                        </span>
+                    </div>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color: #7a9c91;">No events scheduled yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

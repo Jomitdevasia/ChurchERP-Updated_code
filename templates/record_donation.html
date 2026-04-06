@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+
+{% block title %}Record Donation · ParishOS{% endblock %}
+
+{% block content %}
+<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem;">
+    <h1 style="font-family: 'Poppins', sans-serif;">💰 Record Donation</h1>
+    <a href="{{ url_for('donations') }}" class="badge-slide" style="text-decoration: none; padding: 0.5rem 1.5rem;">
+        <i class="fas fa-arrow-left"></i> Back to Donations
+    </a>
+</div>
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+    <!-- LEFT: Form to add donation -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">➕ New Donation</h3>
+        <form method="POST" action="{{ url_for('record_donation') }}">
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Donor Name</label>
+                <input type="text" name="donor_name" placeholder="e.g. Thomas family" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Amount (€)</label>
+                <input type="number" step="0.01" name="amount" placeholder="25.00" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Date</label>
+                <input type="date" name="date" required style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+            </div>
+            <div style="margin-bottom: 1.2rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Payment Method</label>
+                <select name="method" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;">
+                    <option value="online">Online</option>
+                    <option value="offline">Offline (Cash/Check)</option>
+                </select>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="display: block; margin-bottom: 0.3rem; font-weight: 500; color: #33635a;">Notes (optional)</label>
+                <textarea name="notes" rows="2" style="width: 100%; padding: 12px; border: 1.5px solid #dde9e4; border-radius: 18px;"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="border: none; padding: 12px 28px; border-radius: 40px; background: #266b5c; color: white; font-weight: 600; cursor: pointer;">
+                <i class="fas fa-save"></i> Save Donation
+            </button>
+        </form>
+    </div>
+
+    <!-- RIGHT: Recent donations list -->
+    <div style="background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 8px 20px rgba(0,0,0,0.02);">
+        <h3 style="margin-bottom: 1.5rem; color: #1e3f3a;">📋 Recent Donations</h3>
+        {% if donations %}
+            <ul style="list-style: none; padding: 0;">
+            {% for d in donations %}
+                <li style="padding: 12px 0; border-bottom: 1px solid #e2ebe5; display: flex; justify-content: space-between;">
+                    <span><strong>{{ d.donor }}</strong> · {{ d.amount }}€</span>
+                    <span style="color: #7a9c91;">{{ d.date }}</span>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p style="color: #7a9c91;">No donations recorded yet.</p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    // Optional: you could add a confirmation message after form submission
+</script>
+{% endblock %}

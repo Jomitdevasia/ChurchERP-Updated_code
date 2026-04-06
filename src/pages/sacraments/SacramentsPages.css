@@ -1,0 +1,92 @@
+.sacraments-page {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.sacraments-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.sacrament-types {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.sacrament-type {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.sacrament-type:hover {
+  transform: translateX(4px);
+  border-color: var(--primary-gold);
+  box-shadow: var(--shadow-sm);
+}
+
+.type-icon {
+  font-size: 2rem;
+  color: var(--primary-gold);
+}
+
+.sacrament-type h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--secondary-crimson);
+}
+
+.sacrament-type p {
+  margin: var(--spacing-xs) 0 0;
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+}
+
+@media (max-width: 1024px) {
+  .sacraments-grid {
+    grid-template-columns: 1fr;
+  }
+}
+.filter-tabs {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+  flex-wrap: wrap;
+}
+
+.filter-tab {
+  padding: 0.5rem 1rem;
+  background: var(--gray-light);
+  border: 1px solid var(--gray-medium);
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all var(--transition-fast);
+  font-family: var(--font-body);
+}
+
+.filter-tab:hover {
+  background: var(--gray-medium);
+}
+
+.filter-tab.active {
+  background: var(--primary-gold);
+  border-color: var(--primary-gold);
+  color: var(--white-pure);
+}
+
+.sacrament-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--gray-light);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+}

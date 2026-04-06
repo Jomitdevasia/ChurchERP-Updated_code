@@ -1,0 +1,391 @@
+/* ===== Dashboard Page ===== */
+.dashboard-page {
+  animation: fadeIn 0.5s ease-out;
+  background: var(--bg-color, #F9FAFB);
+  min-height: 100vh;
+}
+
+.page-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 2rem;
+  color: var(--primary-color, #1E293B); /* dark blue-gray */
+}
+
+.page-header p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--text-secondary, #64748B);
+}
+
+/* Stats grid – cards with different colors for each stat */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.stat-card-clickable {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.stat-card-clickable:hover {
+  transform: translateY(-4px);
+}
+
+/* Agent performance & loan breakdown containers */
+.agent-performance-section,
+.loan-status-section {
+  margin-bottom: var(--spacing-xl);
+  background: var(--card-bg, #FFFFFF);
+  border-radius: var(--radius-lg, 1rem);
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  padding: var(--spacing-lg);
+}
+
+.agent-performance-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  flex-wrap: wrap;
+}
+
+.agent-performance-header h3 {
+  margin: 0;
+  color: var(--text-primary, #0F172A);
+  font-size: 1.25rem;
+}
+
+.agent-stats {
+  display: flex;
+  gap: var(--spacing-lg);
+  background: var(--bg-light, #F1F5F9);
+  padding: var(--spacing-md) var(--spacing-lg);
+  border-radius: var(--radius-md, 0.5rem);
+}
+
+.agent-stat-item {
+  text-align: center;
+}
+
+.agent-stat-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #64748B);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.agent-stat-value {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--success-color, #10B981);
+}
+
+/* Individual agent cards */
+.agent-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-lg);
+}
+
+.agent-card {
+  background: var(--card-bg, #FFFFFF);
+  border: 1px solid var(--border-color, #E2E8F0);
+  border-radius: var(--radius-lg, 1rem);
+  padding: var(--spacing-lg);
+  transition: all 0.2s;
+}
+
+.agent-card:hover {
+  box-shadow: var(--shadow-md, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+}
+
+.agent-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 0 0 var(--spacing-xs) 0;
+  color: var(--text-primary, #0F172A);
+}
+
+.agent-metrics {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: var(--spacing-md);
+}
+
+.agent-metric {
+  font-size: 0.875rem;
+  color: var(--text-secondary, #64748B);
+}
+
+.agent-percentage {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color, #3B82F6);
+}
+
+/* Progress bar */
+.progress-bar-container {
+  background: var(--bg-light, #E2E8F0);
+  border-radius: var(--radius-full, 9999px);
+  height: 0.5rem;
+  overflow: hidden;
+  margin-top: var(--spacing-sm);
+}
+
+.progress-bar {
+  background: var(--primary-color, #3B82F6);
+  height: 100%;
+  border-radius: var(--radius-full, 9999px);
+  transition: width 0.3s ease;
+}
+
+/* Loan breakdown grid */
+.loan-breakdown-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.loan-breakdown-item {
+  background: var(--bg-light, #F1F5F9);
+  border-radius: var(--radius-md, 0.5rem);
+  padding: var(--spacing-md);
+  text-align: center;
+}
+
+.loan-breakdown-label {
+  font-size: 0.75rem;
+  color: var(--text-secondary, #64748B);
+  margin-bottom: var(--spacing-xs);
+}
+
+.loan-breakdown-value {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-primary, #0F172A);
+}
+
+/* Charts grid – unchanged from original */
+.charts-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.charts-grid > * {
+  height: 400px;  /* adjust as needed */
+}
+
+/* Activities & events */
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Quick actions */
+.quick-actions-card {
+  background: linear-gradient(135deg, var(--bg-light, #F1F5F9) 0%, var(--card-bg, #FFFFFF) 100%);
+}
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--spacing-md);
+}
+
+.quick-action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-md);
+  background: var(--card-bg, #FFFFFF);
+  border: 1px solid var(--border-color, #E2E8F0);
+  border-radius: var(--radius-md, 0.5rem);
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--primary-color, #3B82F6);
+  transition: all var(--transition-fast, 0.2s);
+}
+
+.quick-action-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md, 0 4px 6px -1px rgba(0, 0, 0, 0.1));
+  border-color: var(--primary-color, #3B82F6);
+  color: var(--primary-dark, #2563EB);
+}
+.sacrament-stats-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-lg);
+  justify-content: space-between;
+}
+
+.sacrament-stat-item {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  padding: var(--spacing-md);
+  background: var(--bg-light, #F1F5F9);
+  border-radius: var(--radius-md, 0.5rem);
+}
+/* Add space below the Sacrament Statistics section */
+.sacrament-breakdown {
+  margin-bottom: var(--spacing-2xl); /* 3rem or 48px – adjust as needed */
+}
+
+/* Status badges (reused from other modules) */
+.status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full, 9999px);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.status-upcoming {
+  background: #DBEAFE;
+  color: #1E40AF;
+}
+.status-ongoing {
+  background: #FEF3C7;
+  color: #B45309;
+}
+.status-completed {
+  background: #D1FAE5;
+  color: #065F46;
+}
+.status-cancelled {
+  background: #FEE2E2;
+  color: #991B1B;
+}
+
+/* Overdue loan row (for the table) */
+.overdue-row {
+  background-color: #FEF2F2;
+  border-left: 3px solid var(--danger-color, #EF4444);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .charts-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  .activities-grid {
+    grid-template-columns: 1fr;
+  }
+  .quick-actions {
+    grid-template-columns: 1fr;
+  }
+  .agent-stats {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+}
+
+/* Skeleton loading */
+.stat-card-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 0.75rem;
+  height: 120px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+/* ===== Single Color Theme for Tables & Badges ===== */
+
+/* Table headers – use primary color */
+.data-table th {
+  background: var(--bg-light, #F1F5F9);
+  color: var(--text-primary, #0F172A);
+  border-bottom: 2px solid var(--primary-color, #3B82F6);
+}
+
+/* Table rows – remove any colored backgrounds */
+.data-table tbody tr {
+  background: var(--card-bg, #FFFFFF);
+}
+
+.data-table tbody tr:hover {
+  background: rgba(59, 130, 246, 0.05); /* subtle primary color tint */
+}
+
+/* Unify all status badges to a single color */
+.status-badge,
+.status-upcoming,
+.status-ongoing,
+.status-completed,
+.status-cancelled {
+  background: var(--primary-color, #3B82F6) !important;
+  color: white !important;
+}
+
+/* If you want to keep danger (red) for cancelled or overdue, comment the above and use specific overrides: */
+/* 
+.status-upcoming { background: var(--primary-color, #3B82F6); }
+.status-ongoing { background: var(--primary-color, #3B82F6); }
+.status-completed { background: var(--success-color, #10B981); }  (keep green if desired)
+.status-cancelled { background: var(--danger-color, #EF4444); }
+*/
+
+/* Action buttons (view/edit/delete) – use primary color for view, keep red for delete if desired */
+.action-btn.view-btn {
+  color: var(--primary-color, #3B82F6) !important;
+}
+
+/* Optional: unify delete button as well (remove if you want red for delete) */
+.action-btn.delete-btn {
+  color: var(--danger-color, #EF4444); /* keep red for delete – common UX */
+}
+
+/* Overdue row – change red border to primary color if you don't want red */
+.overdue-row {
+  background-color: rgba(59, 130, 246, 0.05);
+  border-left: 3px solid var(--primary-color, #3B82F6);
+}
+
+/* Quick action buttons – already using primary color */
+.quick-action-btn {
+  background: var(--primary-color, #3B82F6);
+  color: white;
+  border: none;
+}
+.quick-action-btn:hover {
+  background: var(--primary-dark, #2563EB);
+}
+
+/* Additional utility classes */
+.warning-text {
+  color: var(--danger-color, #EF4444);
+  font-size: 0.875rem;
+}

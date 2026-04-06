@@ -1,0 +1,185 @@
+.parish-page {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.parish-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+}
+
+.parish-info-card {
+  height: fit-content;
+}
+
+.parish-view {
+  padding: var(--spacing-sm);
+}
+
+.parish-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 2px solid var(--gray-light);
+}
+
+.parish-icon-large {
+  width: 80px;
+  height: 80px;
+  background: var(--gradient-gold);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: var(--white-pure);
+}
+
+.parish-title {
+  flex: 1;
+}
+
+.parish-title h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: var(--secondary-crimson);
+}
+
+.parish-title p {
+  margin: var(--spacing-xs) 0 0;
+  color: var(--gray-dark);
+}
+
+.parish-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-xl);
+}
+
+.detail-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-md);
+}
+
+.detail-icon {
+  font-size: 1.25rem;
+  color: var(--primary-gold);
+  margin-top: 0.125rem;
+}
+
+.detail-item strong {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--gray-dark);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-item p {
+  margin: var(--spacing-xs) 0 0;
+  font-size: 0.875rem;
+  color: var(--black-soft);
+}
+
+.parish-description {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--gray-light);
+}
+
+.parish-description strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--gray-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.parish-description p {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--black-soft);
+}
+
+.parish-form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-md);
+}
+
+.form-actions {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.mass-schedule-card {
+  height: fit-content;
+}
+
+.mass-schedule {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.schedule-day {
+  display: flex;
+  gap: var(--spacing-md);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 1px solid var(--gray-light);
+}
+
+.schedule-day:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.schedule-icon {
+  font-size: 1.25rem;
+  color: var(--primary-gold);
+  margin-top: 0.125rem;
+}
+
+.schedule-day strong {
+  display: block;
+  font-size: 0.875rem;
+  color: var(--secondary-crimson);
+  margin-bottom: var(--spacing-xs);
+}
+
+.schedule-day p {
+  margin: 0.25rem 0;
+  font-size: 0.875rem;
+  color: var(--black-soft);
+}
+
+@media (max-width: 1024px) {
+  .parish-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .parish-details-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  
+  .parish-header {
+    flex-direction: column;
+    text-align: center;
+  }
+}
